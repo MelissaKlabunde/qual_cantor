@@ -1,0 +1,166 @@
+/* ========= GERENCIAMENTO DE TELA ========= */
+
+/*section.flag-1{ display: none;}*/
+
+
+/* ========= CARREGAR FONTS ========= */
+@font-face {
+    font-family: abel;
+    src: url('../font/Abel-Regular.ttf');
+}
+@font-face {
+ font-family: 'mticons';
+ font-style: normal;
+ font-weight: 400;
+ src: url(../font/MaterialIcons-Regular.ttf);
+}
+
+.mticons{
+   font-family:mticons;
+}
+
+.faicons{
+   font-family:faicons;
+}
+
+/* ========= DEFINIÇÕES GERAIS ========= */
+body{
+   font-family:abel;
+   color: white;
+   background: #4ABDAC;
+}
+section, body{
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+   box-sizing: border-box;
+}
+
+/* ========= TELA 1 - INÍCIO ========= */
+section.inicio{
+   text-align: center;
+   background: url(../img/musica.png) no-repeat center bottom;
+   background-color: #4ABDAC;
+   background-size: 50% auto;
+   
+}
+section.inicio h1{
+   font-size: 3em;
+   margin: 5vh 5vw 0 5vw;
+}
+
+section.inicio h2{
+   font-size: 1em;
+   margin: 5vh 2vw 0 2vw;
+}
+section.inicio button{
+   background: #8266b9;
+   border: none;
+   font-size: 2em;
+   color: #ffffff;
+   box-shadow: 4px 5px 10px -2px rgb(0, 0, 0);
+   width: 80vw;
+   margin: 10vw auto;
+   padding: 20px 0;
+   border-radius: 4px;
+}
+
+
+/* ========= TELA 1 - INÍCIO ========= */
+section.flag{
+   color: white;
+   display: none;
+}
+section.flag header{
+   background: #8266b9;
+   font-size: 1.3em;
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   text-align: left;
+   height: 9vh;
+   box-sizing: border-box;
+}
+section.flag header p span.mticons{
+   font-size: 1em;
+   padding: 3px 2px 0 2px;
+   position: relative;
+   top: 2px;
+}
+
+section.flag div {
+   height: 78vh;
+   padding: 6vh 5vw 0 5vw;
+}
+section.flag div h1{
+   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+   padding: 0 0 1vh 0;
+   font-size: 1.2em;
+}
+section.flag ul{
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+section.flag div ul{
+   padding: 7vh 0;
+}
+section.flag div ul li{
+   width: 25vw;
+   height: 25vw;
+   margin: 0vh 1vw 4vh 1vw;
+}
+section.flag ul li img{
+   width: 100%;
+   border-radius: 50%;
+   border: 3px solid #8266b9;
+   box-shadow: 4px 4px 2px -2px rgba(0,0,0,0.5); 
+}
+
+section.flag footer{
+   width: 100vw;
+   height: 17vh;
+   background: #8266b9;
+   color: white;
+   font-size: 2em;
+   text-align: center;
+   bottom: 0;
+   color: white;
+   padding: 8px 0 0 0;
+}
+section.flag footer p{
+    display: flex;
+   justify-content: space-around;
+}
+section.flag footer span.mticons{
+   position: relative;
+   top: 2px;
+}
+
+
+
+section.recomeco{
+    text-align: center;
+    background: url(../img/musica.png) no-repeat center bottom;
+    background-color: #4ABDAC;
+    background-size: 50% auto;
+    text-align: center;
+}
+
+section.recomeco h1{
+   text-align: left;
+   font-size: 3em;
+   margin: 7vh 5vw 0 5vw;
+}
+
+section.recomeco input{
+   background: #8266b9;
+   border: none;
+   font-size: 2em;
+   color: #ffffff;
+   box-shadow: 4px 4px 2px -2px rgb(0, 0, 0);
+   width: 80vw;
+   margin: 10vw auto;
+   padding: 20px 0;
+   border-radius: 4px;
+}

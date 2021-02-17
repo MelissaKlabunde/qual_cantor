@@ -1,0 +1,234 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Que Som é Esse?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/jogo.css">
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css"> 
+</head>
+<body>
+
+
+  <!------------ TELA DE INÍCIO ----------->
+  <section class="inicio">
+    <h1>QUEM É O CANTOR?</h1>    
+
+    <h2>Quem é o cantor é um jogo feito para estimular nossos ouvidos. <br><br>
+      Será que você consegue descobrir quem está cantando as músicas? Vamos lá?</h2>
+
+    <button>JOGAR</button>
+  </section> 
+
+
+  <!------------ TELA DO JOGO ----------->
+  <section class="flag flag-1">  
+    <header>
+      <p>
+        <span class="mticons">star</span> 
+        ACERTOS: <span class="acertos">0</span>
+        
+      </p>
+      <p>
+        <span class="mticons">alarm</span> 
+        00:<span class="tempo">00</span>
+      </p>
+    </header>
+
+
+    <div>
+      <h1>Quem está cantando?</h1>
+      <ul>
+        <li><img class="certo "src="img/bieber.jpg"></li>
+        <li><img class= "errado" src="img/demi.jpg"></li>
+        <li><img class="certo" src="img/bonj.jpg"></li>
+        <li><img class= "errado" src="img/dilsinho.jpg"></li>
+        <li><img class="certo" src="img/enzo.jpeg"></li>
+        <li><img class= "errado" src="img/lady.jpg"></li>
+        <li><img class= "errado 1" src="img/luan.jpg"></li>
+        <li><img class= "errado 2" src="img/lulu.jpg"></li>
+        <li><img class= "errado" src="img/miley.jpg"></li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>
+        <span class="mticons volume" class="som">volume_up</span>
+        <span class="mticons home" class="home" onClick="history.go(0)">home</span>
+        <span class="mticons ajuda" class="ajuda">help_outline</span>
+      </p>
+    </footer>
+  </section>
+  
+  <!-- end .flg  .flag-1  -->
+
+<section class="recomeco">
+  <h1><span class="resposta"></span></h1>
+  <input type="button" value="Home" onClick="history.go(0)">  
+</section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  
+
+
+  var musica1 = new Audio('');
+  $("section.inicio button").on("click", function() {
+  musica1 = new Audio('musica/livin-on-a-prayer-official-music-video.mp3');
+  musica1.play();
+  musica3 = new Audio('musica/sorry-purpose-the-movement.mp3');
+  musica3.play(); 
+  musica2 = new Audio('musica/perfeitinha.mp3');
+  musica2.play(); 
+  
+
+  $("section").hide();
+  $("section.flag-1").show();
+
+  setInterval(function(){
+    var tempo = parseInt($("span.tempo").text());
+    var soma = tempo + 1;
+
+    if(soma<10){
+      soma = "0" + soma;
+    }
+
+    $("span.tempo").text(soma);
+
+    if(tempo == 15){
+    $("section").hide();
+    $("section.recomeco").show();
+      musica1.pause();
+      musica2.pause();
+      musica3.pause();
+      $("span.resposta").text("VOCÊ NÃO ACERTOU NENHUM CANTOR");
+      musica7= new Audio('musica/game-over.wav');
+      musica7.play();
+   }
+  }, 1000)
+  
+   
+  });
+
+
+
+  $("section.flag-1 ul img.certo").one("click", function(){
+    var acertos = parseInt($("span.acertos").text());
+    var soma = acertos + 1;
+    $("span.acertos").text(soma);
+    $(this).css({opacity:0.5});
+    
+      musica4 = new Audio('musica/correct.mp3');
+      musica4.play();
+  });
+
+  var erros = 0;
+  $("section.flag-1 ul img.errado").one("click", function(){
+    erros += 1;
+    $(this).css({opacity:0.5});
+    musicaerro = new Audio('musica/error.mp3');
+      musicaerro.play();
+   
+    if(erros > 1){
+      musica1.pause();
+      musica2.pause();
+      musica3.pause();
+      musica4 = new Audio('musica/game-over-acarde.wav');
+      musica4.play();
+      $("section").hide();
+  $("section.recomeco").show();
+    }
+    if(acertos == 0 && erros == 2){
+      $("span.resposta").text("Game Over! Acertos: 0 Erros: 2");
+      musica7= new Audio('musica/game-over.wav');
+      musica7.play(); 
+    }else if(acertos == 1 && erros == 2){
+      $("span.resposta").text("Game Over! Acertos: 1 Erros: 2");
+      musica7= new Audio('musica/game-over.wav');
+      musica7.play();
+    }else if(acertos == 2 && erros == 2){
+      $("span.resposta").text("Game Over! Acertos: 2 Erros: 2");
+      musica7= new Audio('musica/game-over.wav');
+      musica7.play();
+    }
+
+
+  });
+
+  var acertos = 0;
+  $("section.flag-1 ul img.certo").one("click", function(){
+    acertos += 1;
+    $(this).css({opacity:0.5});
+
+    if(acertos > 2){
+      musica1.pause();
+      musica2.pause();
+      musica3.pause();
+      $("section").hide();
+  $("section.recomeco").show();
+    }
+
+    if(acertos == 3 && erros == 0){
+      $("span.resposta").text("Parabéns! Acertos: 3 Erros: 0");
+      musica7 = new Audio('musica/win.wav');
+      musica7.play(); 
+    }else if(acertos == 3 && erros == 1){
+      $("span.resposta").text("Você acertou todos os cantores! Acertos: 3 Erros: 1");
+      musica7 = new Audio('musica/win.wav');
+      musica7.play(); 
+    } 
+  });
+
+
+  $("section.flag footer p span.mticons.home").on("click", function(){
+    $("section").hide();
+  $("section.inicio").show();
+  musica1.pause();
+  musica2.pause();
+  musica3.pause();
+  });
+
+  $("section.flag footer p span.mticons.volume").on("click", function(){
+    textoDoBotao = $(this).text();        
+        if(textoDoBotao == "volume_up"){
+          musica1.pause();
+          musica3.pause(); 
+          musica2.pause();  
+          $(this).text("volume_off");
+        }else{
+          musica1 = new Audio('musica/livin-on-a-prayer-official-music-video.mp3');
+          musica1.play();
+          musica3 = new Audio('musica/sorry-purpose-the-movement.mp3');
+          musica3.play(); 
+          musica2 = new Audio('musica/perfeitinha.mp3');
+          musica2.play();
+          $(this).text("volume_up");
+        }
+  });
+
+  $("section.flag footer p span.mticons.ajuda").on("click", function(){
+    $("section.flag ul img.errado.1").css({opacity:0.5});
+    $("section.flag ul img.errado.2").css({opacity:0.5});
+  });
+
+
+
+  $("section.recomeco button").on("click", function(){
+    $("section").hide();
+  $("section.inicio").show();
+  musica.pause();
+  musica.load();
+  });
+
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
