@@ -1,8 +1,8 @@
 # Jogo "Quem é o cantor?"
 
-##Jogo criado para a disciplina de Tópicos Especiais Integrados, do curso Integrado ao Ensino Médio em Informática.
+## Jogo criado para a disciplina de Tópicos Especiais Integrados, do curso Integrado ao Ensino Médio em Informática.
 
-###Tecnologias
+### Tecnologias
 -HTML
 -CSS
 -JavaScript
